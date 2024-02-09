@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  mc:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    environment:
+      EULA: "true"
+      TYPE: FORGE
+      VERSION: 1.19.2
+      MODS_FILE: /extras/mods.txt
+      REMOVE_OLD_MODS: "true"
+      MAX_MEMORY: 10G
+    ports:
+      - 192.168.9.108:25565:25565
+    volumes:
+      - /RSP0/docker/minecraft_server/docker/data:/data
+      - ./mods.txt:/extras/mods.txt:ro
