@@ -1,0 +1,10 @@
+{
+    "$schema": "https://raw.githubusercontent.com/barbarbar338/ncfs/main/config.schema.json",
+    "NGROK_TCP_PORT": 25565,
+    "NGROK_AUTH_TOKEN": "2XOfPufMTBwYZpz3bsMpDNAa5Yk_6eG8pFAfH3MqnEC4arGmP",
+    "CLOUDFLARE_AUTH_EMAIL": "honkparley@gmail.com",
+    "CLOUDFLARE_API_KEY": "231cf1aa2517a04043f2b051f0ccd78c0446e",
+    "CLOUDFLARE_ZONE_ID": "45528a961efa8b21395fba8bba59995b",
+    "CLOUDFLARE_CNAME_RECORD_NAME": "play.theotherside.work",
+    "CLOUDFLARE_SRV_RECORD_NAME": "minecraft.theotherside.work"
+}
