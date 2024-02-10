@@ -1,0 +1,1 @@
+sudo docker run -it -e NGROK_AUTHTOKEN=2UO283MkyZU06a1Bo5NG820lxbT_76L16yZtgqTEaSSt2e817 ngrok/ngrok:latest tcp 192.168.9.108:25565
