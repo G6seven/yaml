@@ -1,0 +1,47 @@
+version: '3.8'
+
+name: ncfs-mc-complex
+
+networks:
+    ncfs-mc-net:
+
+services:
+  mc:
+    container_name: mc-server
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    environment:
+      EULA: "true"
+      TYPE: FORGE
+      VERSION: 1.19.2
+      MODS_FILE: /extras/mods.txt
+      REMOVE_OLD_MODS: "true"
+      MAX_MEMORY: 10G
+    ports:
+      - 192.168.9.108:25565:25565/tcp
+    networks:
+      - ncfs-mc-net
+    volumes:
+      - /RSP0/docker/volumes/minecraft-server/:/data
+      - /RSP0/docker/volumes/minecraft-server/mods.txt:/extras/mods.txt:ro
+
+
+  ncfs:
+    image: barbarbar338/ncfs:buildx-latest
+    container_name: ncfs
+    restart: unless-stopped
+    depends_on:
+      - mc
+    environment:
+      NGROK_TCP_PORT: 25565
+      NGROK_AUTH_TOKEN: 2UO283MkyZU06a1Bo5NG820lxbT_76L16yZtgqTEaSSt2e817
+      CLOUDFLARE_AUTH_EMAIL: honkparley@gmail.com
+      CLOUDFLARE_API_KEY: 231cf1aa2517a04043f2b051f0ccd78c0446e
+      CLOUDFLARE_ZONE_ID: 45528a961efa8b21395fba8bba59995b
+      CLOUDFLARE_CNAME_RECORD_NAME: play.theotherside.work
+      # If the game supports SRV records, put the prefix here, otherwise leave blank
+      CLOUDFLARE_SRV_RECORD_NAME: minecraft.theotherside.work
+      CLOUDFLARE_SRV_RECORD_PREFIX: _minecraft._tcp
+      DOCKER_NETWORK: 192.168.9.108
