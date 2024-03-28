@@ -24,8 +24,8 @@ services:
     networks:
       - ncfs-mc-net
     volumes:
-      - /RSP0/docker/volumes/minecraft-server/:/data
-      - /RSP0/docker/volumes/minecraft-server/mods.txt:/extras/mods.txt:ro
+      - /RSP0/volumes/minecraft-server/:/data
+      - /RSP0/volumes/minecraft-server/mods.txt:/extras/mods.txt:ro
 
 
   ncfs:

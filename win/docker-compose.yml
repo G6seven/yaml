@@ -1,0 +1,15 @@
+version: "3"
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 192.168.9.100:8006:8006
+      - 192.168.9.100:3389:3389/tcp
+      - 192.168.9.100:3389:3389/udp
+    stop_grace_period: 2m
+    restart: on-failure

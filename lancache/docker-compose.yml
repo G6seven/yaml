@@ -4,10 +4,10 @@ services:
   dns:
     image: lancachenet/lancache-dns:latest
     env_file: .env
-    restart: always
+    restart: unless-stopped
     ports:
-      - 192.168.9.104:53:53/udp
-      - 192.168.9.104:53:53/tcp
+      - ${DNS_BIND_IP}:53:53/udp
+      - ${DNS_BIND_IP}:53:53/tcp
 
 ## HTTPS requests are now handled in monolithic directly
 ## you could choose to return to sniproxy if desired
@@ -22,10 +22,10 @@ services:
   monolithic:
     image: lancachenet/monolithic:latest
     env_file: .env
-    restart: always
+    restart: unless-stopped
     ports:
-      - 192.168.9.104:80:80/tcp
-      - 192.168.9.104:444:444/tcp
+      - 80:80/tcp
+      - 443:443/tcp
     volumes:
-      - /RSP0/docker/volumes/lancache/cache:/data/cache
-      - /RSP0/docker/volumes/lancache/logs:/data/logs
+      - ${CACHE_ROOT}/cache:/data/cache
+      - ${CACHE_ROOT}/logs:/data/logs

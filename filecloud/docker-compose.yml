@@ -44,26 +44,7 @@ services:
 
 volumes:
     mongo_database:
-        driver: local
-        driver_opts: 
-          type: opts
-          o: bind
-          device: /RSP0/docker/filecloud/mongo_database
     cloud_data:
-        driver: local
-        driver_opts:
-          type: opts
-          o: bind
-          device: /RSP0/docker/filecloud/cloud_data
     solr_data:
-        driver: local
-        driver_opts:
-          type: opts
-          o: bind
-          device: /RSP0/docker/filecloud/solr_data
     var_html:
-        driver: local
-        driver_opts:
-          type: opts
-          o: bind
-          device: /RSP0/docker/filecloud/var_html
+
