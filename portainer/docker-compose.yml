@@ -1,0 +1,13 @@
+version: '1.0'
+
+services:
+  portainer:
+    image: portainer/portainer-ce
+    restart: always
+    ports:
+      - 192.168.9.100:9000:9000
+      - 192.168.9.100:8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /portainer_data/data 
+        
