@@ -1,6 +1,6 @@
 # Configuration Readme
 
-## Docker Daemon Configuration
+## Docker Containers Compose Files
 
 To modify the Docker daemon configuration, you can use the following command in your terminal:
 
@@ -9,7 +9,8 @@ nvim /etc/docker/daemon.json
 {
   "data-root": "/RSP0/docker"
 }
-nvim /etc/hosts
+```
+
 network:
   version: 2
   renderer: networkd
@@ -31,3 +32,4 @@ network:
       gateway4: 192.168.9.1
       nameservers:
           addresses: [8.8.8.8, 1.1.1.1]
+
