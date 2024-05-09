@@ -6,11 +6,17 @@ To modify the Docker daemon configuration, you can use the following command in 
 
 ```bash
 nvim /etc/docker/daemon.json
+```
+
+```bash
 {
   "data-root": "/RSP0/docker"
 }
 ```
+## Nework Config 
 
+
+```bash
 network:
   version: 2
   renderer: networkd
@@ -32,4 +38,5 @@ network:
       gateway4: 192.168.9.1
       nameservers:
           addresses: [8.8.8.8, 1.1.1.1]
+```
 
