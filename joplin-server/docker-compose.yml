@@ -1,10 +1,9 @@
-  version: '3'
-
-  services:
-    db:
-      image: postgres:13
+version: "3"
+services:
+  db:
+    image: postgres:13
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - /home/g6seven/Documents/dev/dockerEnv/volumes/joplin-server/data/postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     restart: always
@@ -12,8 +11,8 @@
       - POSTGRES_PASSWORD=Your-Password-here
       - POSTGRES_USER=joplin-user
       - POSTGRES_DB=joplindb
-    app:
-      image: joplin/server:latest
+  app:
+    image: joplin/server:latest
     container_name: joplin-server
     depends_on:
       - db
@@ -22,7 +21,7 @@
     restart: always
     environment:
       - APP_PORT=8080
-      - APP_BASE_URL=https://joplin.example.com
+      - APP_BASE_URL=http://localhost:8080
       - DB_CLIENT=pg
       - POSTGRES_PASSWORD=Your-Password-here
       - POSTGRES_DATABASE=joplindb
