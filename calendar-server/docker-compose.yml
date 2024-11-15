@@ -1,0 +1,16 @@
+# Docker Compose file for a Baikal server
+
+version: "2"
+services:
+  baikal:
+    image: ckulka/baikal:nginx
+    restart: always
+    ports:
+      - "192.168.9.102:80:80"
+    volumes:
+      - /RSP0/volumes/calendar-server/config:/var/www/baikal/config
+      - /RSP0/volumes/calendar-server/data:/var/www/baikal/Specific
+
+volumes:
+  config:
+  data:
