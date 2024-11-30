@@ -24,8 +24,8 @@ services:
     env_file: .env
     restart: unless-stopped
     ports:
-      - 80:80/tcp
-      - 443:443/tcp
+      - 192.168.9.104:80:80/tcp
+      - 192.168.9.104:443:443/tcp
     volumes:
       - ${CACHE_ROOT}/cache:/data/cache
       - ${CACHE_ROOT}/logs:/data/logs
