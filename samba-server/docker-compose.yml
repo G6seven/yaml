@@ -1,0 +1,13 @@
+services:
+  samba:
+    image: dockurr/samba
+    container_name: samba
+    environment:
+      NAME: "Public folder"
+      USER: "G6seven"
+      PASS: "8Rf^r~BZg8WVh])"
+    ports:
+      - 192.168.9.101:445:445
+    volumes:
+      - /RSP0/volumes/samba-server/storage/:/storage
+      - /RSP0/volumes/samba-server/smb.conf:/etc/samba/smb.conf
